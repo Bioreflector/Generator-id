@@ -1,30 +1,11 @@
+const str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+
 const getStr = () => {
-  if (
-    $('#numbers').is(':checked') &&
-    $('#upper').is(':checked') &&
-    $('#lower').is(':checked')
-  ) {
-    return 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
-  } else if ($('#numbers').is(':checked') && $('#upper').is(':checked')) {
-    return 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
-  } else if ($('#numbers').is(':checked') && $('#lower').is(':checked')) {
-    return 'abcdefghijklmnopqrstuvwxyz0123456789'
-  } else if ($('#upper').is(':checked') && $('#lower').is(':checked')) {
-    return 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
-  } else if ($('#lower').is(':checked')) {
-    return 'abcdefghijklmnopqrstuvwxyz'
-  } else if ($('#upper').is(':checked')) {
-    return 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-  } else if ($('#numbers').is(':checked')) {
-    return '0123456789'
-  }
-}
-const isCheckedAny = () => {
-  return (
-    $('#numbers').is(':checked') ||
-    $('#upper').is(':checked') ||
-    $('#lower').is(':checked')
-  )
+  let newStr = ''
+    if($('#numbers').is(':checked')) newStr += str.match(/[0-9]+/)[0]
+    if($('#upper').is(':checked')) newStr += str.match(/[A-Z]+/)[0]
+    if($('#lower').is(':checked')) newStr += str.match(/[a-z]+/)[0]
+  return newStr  
 }
 const getRandom = (str) => {
   return str.charAt(Math.floor(Math.random() * str.length))
@@ -33,12 +14,12 @@ const generator = () => {
   const str = getStr()
   let result = ''
   const characters = $('#lengthId').val()
-  if (isCheckedAny()) {
+  if (str) {
     $('.out').css('color', 'green')
     for (let i = 0; i < characters; i++) {
       result += getRandom(str)
-      $('.massage').text('')
     }
+    $('.massage').text('')
   } else {
     $('.massage').css('color', 'red')
     $('.massage').text(`I'm sorry, but you did not select a generation option`)

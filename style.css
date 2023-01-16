@@ -6,15 +6,13 @@
 body {
   background-color: #193549;
   height: 100vh;
+  padding: 0 10px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  padding: 0 5px;
+  align-items: center;
 }
 .wrapper {
-  max-width: 450px;
-  height: 320px;
+  width: 450px;
   padding: 20px 30px;
   background-color: white;
   border-radius: 5px;
@@ -26,13 +24,16 @@ body {
   margin-bottom: 20px;
   font-size: 24px;
   color: grey;
+  text-shadow: 0px 0px 4px rgba(0,0,0,0.3);
 }
 .lengthBox {
   margin-bottom: 20px;
 }
+.lengthBox  label{
+  font-size: 18px;
+}
 #lengthId {
   width: 40px;
-
   margin-left: 10px;
 }
 .check-group {
@@ -47,6 +48,7 @@ body {
   margin-right: 10px;
 }
 .check-group label {
+  font-weight: 700;
   font-size: 17px;
   letter-spacing: 0.5px;
   font-style: italic;
@@ -72,10 +74,14 @@ body {
   outline: 1px solid rgba(0, 0, 0, 0.096);
 }
 .out-conteiner label {
-  margin-right: 5px;
+  font-weight: 700;
 }
 .out-conteiner{
   margin-bottom: 15px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .btnGeneration:hover {
@@ -84,5 +90,7 @@ body {
   color: black;
 }
 .massage{
-  width: 350px;
+  margin-bottom: 20px;
+  height: 20px;
 }
+
