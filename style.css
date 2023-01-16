@@ -28,6 +28,8 @@ body {
 }
 .lengthBox {
   margin-bottom: 20px;
+  display: flex;
+  align-items: center;
 }
 .lengthBox  label{
   font-size: 18px;
